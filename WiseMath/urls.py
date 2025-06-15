@@ -25,5 +25,6 @@ urlpatterns = [
     path('', views.math),
     path('math/<int:type>', views.math_type),
     path('math/<int:a>/<str:op>/<int:b>', views.math_calc),
-    re_path(r'^math/(?P<a>\d+)(?P<op>[^0-9]+)(?P<b>\d+)$', views.math_calc)
+    re_path(r'^math/(?P<a>\d+)(?P<op>[^0-9]+)(?P<b>\d+)$', views.math_calc),
+    path('test_request/', views.test_request),
 ]

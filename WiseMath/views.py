@@ -36,3 +36,15 @@ def math_calc(request, a, op, b):
     html += f'<h1>{{}} {{}} {{}} = {{}}</h1>'.format(a, op, b, r)
     html += "</center>"
     return HttpResponse(html)
+
+def test_request(request):
+    print(f'path_info:{request.path_info}')
+    print(f'method:{request.method}')
+    print(f'GET:{request.GET}')
+    print(f'POST:{request.POST}')
+    print(f'FILES:{request.FILES}')
+    print(f'PATH:{request.path}')
+    print(f'session:{request.session}')
+    print(f'full_path:{request.get_full_path()}')
+    print(f'body:{request.body}')
+    return HttpResponse('测试完毕')
