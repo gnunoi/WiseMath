@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django 单选框示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        .radio-group {
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 创建4列的网格 */
+            grid-auto-rows: minmax(50px, auto); /* 每行的高度 */
+            gap: 10px; /* 选项之间的间距 */
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .radio-option input[type="radio"] {
+            margin-right: 8px;
+        }
+        .submit-btn {
+            display: block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        .results h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>单选框示例</h1>
+
+    <form method="post" class="form-container">
+        {% csrf_token %}
+
+        <div class="radio-group">
+            <label>请选择一个选项：</label>
+            <div class="radio-grid">
+                <!-- 4行4列布局 -->
+                {% for i in option_list %}
+                    <div class="radio-option">
+                        <input type="radio" id="option_{{ i }}" name="selected_option" value="{{ i }}"
+                               {% if forloop.last %}checked{% endif %}>
+                        <label for="option_{{ i }}">选项{{ i }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">提交选择</button>
+    </form>
+
+    {% if selected_option %}
+    <div class="results">
+        <h2>你选择的选项：</h2>
+        <p>{{ selected_option }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>

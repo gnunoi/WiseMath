@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>数字博士2025.06.17（V1.9.5)</title>
+      <style>
+        /* 通用样式 */
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            margin: 20px;
+        }
+        /* 容器样式 */
+        .container {
+            margin-top: 20px;
+        }
+        /* 设置输入框字体大小 */
+        .input-field {
+            font-size: 32px;
+            padding: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* 设置提交按钮字体大小 */
+        .submit-button {
+            font-size: 32px;
+            padding: 16px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            {#background-color: #45a049;#}
+        }
+    </style>
+</head>
+<body>
+<h1>试题类型
+    <form method="POST" action="/test_html/">
+        <input type="radio" id="question_type0" name="question_type" value="0">
+        <label for="option1">24点计算</label><br>
+        <input type="radio" id="question_type1" name="question_type" value="1">
+        <label for="option2">乘法速算</label><br>
+        <input type="radio" id="question_type2" name="question_type" value="2">
+        <label for="option3">四则运算</label><br>
+{#        <button type="button" onclick="getSelectedOption()">提交</button>#}
+    </form>
+</h1>
+<h1>试题描述：{{ comments }}</h1>
+<h1>试题：{{ question }}</h1>
+<h1>
+  <form method="POST" action="/test_html/">
+    输入答案：<input type="text" class="input-field" name="user_answer" autofocus/>
+    <input type="submit" class="submit-button" value="提交"/>
+  </form>
+</h1>
+</body>
+</html>

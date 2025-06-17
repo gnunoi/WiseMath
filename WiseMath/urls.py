@@ -20,11 +20,13 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('math/', views.math),
-    path('math', views.math),
+    # path('math/', views.math),
     path('', views.math),
-    path('math/<int:type>', views.math_type),
-    path('math/<int:a>/<str:op>/<int:b>', views.math_calc),
-    re_path(r'^math/(?P<a>\d+)(?P<op>[^0-9]+)(?P<b>\d+)$', views.math_calc),
-    path('test_request/', views.test_request),
+    # path('math/<int:type>/', views.math_type),
+    # path('math/<int:a>/<str:op>/<int:b>', views.math_calc),
+    # re_path(r'^math/(?P<a>\d+)(?P<op>[^0-9]+)(?P<b>\d+)$', views.math_calc),
+    # path('test_request/', views.test_request),
+    # path('test_post/', views.test_post),
+    path('test_html/', views.test_html),
+    path('test_html2/', views.test_html2),
 ]
